@@ -1,14 +1,25 @@
 "use client"
- import { useState } from "react"
- import Link from "next/link";
+import Card from "@/Components/Card"
 
- export default function Home(){
-     const[message,setMessage] = useState("Hello Mansi");
+
+const skills = [
+  { title: "React", description: "UI banane ki library" },
+  { title: "Next.js", description: "React ka framework, routing + SSR ke saath" },
+  { title: "TypeScript", description: "JavaScript with types" },
+  { title: "Node.js", description: "Backend runtime" },
+  { title: "MongoDB", description: "NoSQL database" },
+  { title: "Tailwind", description: "Utility-first CSS" },
+];
+
+export default function Home(){
   return(
-    <div className="min-h-screen flex flex-col items-center justify-center bg-slate-100 gap-4">
-    <h1 className="text-4xl font-bold text-slate-800">{message}</h1>
-    <button onClick = {() => {setMessage("Button Clicked!")}}className="px-4 py-2 bg-blue-500 text-amber-50 rounded-3xl">Click Me!</button>
-    <button onClick={() => {setMessage("Hello,Mansi")}} className="px-4 py-2 bg-blue-500 text-amber-50 rounded-3xl">Click for Revert</button>
+    <div className="min-h-screen bg-slate-100 p-8">
+      <h1 className="text-3xl font-bold text-slate-800 mb-6">My Skills</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {skills.map((skill,index) => (
+        <Card key={index} title={skill.title} description={skill.description}/>
+      ))}
+    </div>
     </div>
   )
 }
