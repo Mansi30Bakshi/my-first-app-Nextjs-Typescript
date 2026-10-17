@@ -2,9 +2,7 @@ import { resolve } from "path";
 
 export const instant = false;
 export default async function UsersPage(){
-
-   await new Promise((resolve) => setTimeout(resolve, 2000));
-   const res = await fetch("https://jsonplaceholder.typicode.com/users");
+   const res = await fetch("https://jsonplaceholder.typicode.com/user");
    const users = await res.json();
    console.log("Users Fetched : ",users.length);
 
